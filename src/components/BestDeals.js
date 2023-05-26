@@ -1,20 +1,20 @@
-// import { useEffect } from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { getProducts } from '../features/Products';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../features/Products';
 import { Link } from 'react-router-dom';
-// import FeaturedItem from './FeaturedItem';
+import FeaturedItem from './FeaturedItem';
 
 const BestDeals = () => {
-  // const { allProducts } = useSelector((state) => state.products);
-  // console.log(data);
-  // const dispatch = useDispatch();
+  const { allProducts } = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(getProducts());
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   //check for items that contain featured property true from data returned
-  // const filterFeatured = allProducts.filter((item) => item.featured === true);
+  const featuredItems = allProducts.filter((item) => item.featured === true);
+  console.log(featuredItems);
 
   return (
     <div className='bg-[#E3F2C1] pt-12 pb-20 w-full section'>
@@ -26,13 +26,13 @@ const BestDeals = () => {
       </div>
 
       <div className='grid grid-cols-1 md:grid-cols-4 gap-6 px-16'>
-        {/* {filterFeatured.map((item) => {
+        {featuredItems.map((item) => {
           return (
             <div key={item.id} className='pt-10'>
               <FeaturedItem item={item} />
             </div>
           );
-        })} */}
+        })}
       </div>
 
       <div className='all-products'>
