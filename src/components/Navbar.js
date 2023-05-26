@@ -16,16 +16,16 @@ const Navbar = () => {
               <Link to='/'>Home</Link>
             </li>
             <li>
-              <Link to='/about'>About</Link>
+              <Link to='collections/about'>About</Link>
             </li>
             <li>
-              <Link to='/products'>Batteries</Link>
+              <Link to='collections/batteries'>Batteries</Link>
             </li>
             <li>
-              <Link to='/products'>Inverters</Link>
+              <Link to='collections/inverters'>Inverters</Link>
             </li>
             <li>
-              <Link to='/products'>Solar Panels</Link>
+              <Link to='collections/panels'>Solar Panels</Link>
             </li>
           </ul>
 

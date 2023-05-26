@@ -5,7 +5,7 @@ const Brand = () => {
 
   // company name
   const company = allProducts.map((item) => item.company);
-  console.log(company);
+  // console.log(company);
 
   // company logo url
   const logo = allProducts.map((item) => item.logo[0].url);
