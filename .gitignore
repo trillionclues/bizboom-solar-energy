@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Ignore the .netlify folder
-.netlify/
+/.netlify
 
 # env
 .env

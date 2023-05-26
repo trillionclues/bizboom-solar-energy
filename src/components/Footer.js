@@ -114,7 +114,7 @@ const Footer = () => {
             <p>
               All Rights Reserved by
               <span className='ml-2'>
-                <a href='#'>Trillionclues | 2023</a>
+                <a href='https://trillionclues.com/'>Trillionclues | 2023</a>
               </span>
             </p>
           </div>
