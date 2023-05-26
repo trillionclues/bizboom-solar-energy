@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { getProducts } from '../features/Products';
 import Loading from './Loading';
 
-const ProductInfo = () => {
+const ProductDetail = () => {
   const { isLoading } = useSelector((state) => state.products);
   const dispatch = useDispatch();
   const { productId } = useParams();
@@ -39,4 +39,4 @@ const ProductInfo = () => {
   );
 };
 
-export default ProductInfo;
+export default ProductDetail;

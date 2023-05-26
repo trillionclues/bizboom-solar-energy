@@ -5,7 +5,7 @@ import SharedLayouts from './components/SharedLayout';
 import LandingPage from './pages/LandingPage';
 import About from './pages/About';
 import Products from './pages/Products';
-import ProductInfo from './components/ProductInfo';
+import ProductDetail from './components/ProductDetail';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/products' element={<Products />} />
-          <Route path='products/:productId' element={<ProductInfo />} />
+          <Route path='products/:productId' element={<ProductDetail />} />
           <Route
             path='collection/batteries/:productId'
             element={<h1>battery</h1>}
