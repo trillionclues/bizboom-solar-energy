@@ -5,6 +5,7 @@ import SharedLayouts from './components/SharedLayout';
 import LandingPage from './pages/LandingPage';
 import About from './pages/About';
 import Products from './pages/Products';
+import ProductInfo from './components/ProductInfo';
 
 function App() {
   return (
@@ -13,11 +14,19 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/products' element={<Products />} />
-          <Route path='products/:productId' element={<Products />} />
-          {/* <Route path='batteries/:productId' element={<h1>battery</h1>} /> */}
-          {/* <Route path='inverters/:productId' element={<h1>inverters</h1>} /> */}
-          {/* <Route path='panels/:productId' element={<h1>panels</h1>} /> */}
-          {/* <Route path='inverters/:productId' element={<h1>battery</h1>} /> */}
+          <Route path='products/:productId' element={<ProductInfo />} />
+          <Route
+            path='collection/batteries/:productId'
+            element={<h1>battery</h1>}
+          />
+          <Route
+            path='collection/inverters/:productId'
+            element={<h1>inverters</h1>}
+          />
+          <Route
+            path='collection/solar-panels/:productId'
+            element={<h1>panels</h1>}
+          />
           <Route path='/about' element={<About />} />
           <Route path='*' element={<div>Error found...</div>} />
         </Routes>

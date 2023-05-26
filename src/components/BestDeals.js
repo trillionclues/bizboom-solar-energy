@@ -43,7 +43,7 @@ const BestDeals = () => {
         <hr className='border-2 border-[#C9DBB2] w-20 mx-auto my-2 md:my-4 md:w-40' />
       </div>
 
-      <div className='grid grid-cols-1 md:grid-cols-4 gap-6 px-16'>
+      <div className='grid grid-cols-1 md:grid-cols-4 gap-6 px-8 md:px-16'>
         {featuredItems.map((item) => {
           return (
             <div key={item.id} className='pt-10'>
