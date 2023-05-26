@@ -8,7 +8,7 @@ const LandingPage = () => {
       <div className='bg-[#E3F2C1] h-full pt-14 md:h-[80vh] w-full'>
         <Hero />
       </div>
-      {/* <BestDeals /> */}
+      <BestDeals />
       <Brands />
     </>
   );

@@ -1,8 +1,8 @@
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { getProducts } from '../features/Products';
 import { Link } from 'react-router-dom';
-import FeaturedItem from './FeaturedItem';
+// import FeaturedItem from './FeaturedItem';
 
 const BestDeals = () => {
   // const { allProducts } = useSelector((state) => state.products);

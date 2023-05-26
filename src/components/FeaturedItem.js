@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { formatPrice } from '../utils/helpers';
+// import { formatPrice } from '../utils/helpers';
 
 const Featured = () => {
   // const Featured = ({ item }) => {
@@ -14,7 +14,7 @@ const Featured = () => {
           <div className='mb-8'>
             <img
               // src={image}
-              // alt={name}
+              alt='featured item'
               className='w-80 md:w-72 h-72 md:h-56 object-cover rounded-t-md filter'
             />
           </div>
