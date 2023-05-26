@@ -26,11 +26,12 @@ exports.handler = async (event, context, cb) => {
         featured,
         price,
         colors,
-        companay,
+        company,
         description,
         category,
         shipping,
         images,
+        logo,
       } = fields;
 
       // get url of first image
@@ -43,11 +44,12 @@ exports.handler = async (event, context, cb) => {
         featured,
         price,
         colors,
-        companay,
+        company,
         description,
         category,
         shipping,
         image: url,
+        logo,
       };
     });
 

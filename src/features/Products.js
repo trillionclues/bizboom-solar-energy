@@ -40,7 +40,15 @@ const ProductSlice = createSlice({
       state.error = action.payload;
     });
   },
-  reducers: {},
+  reducers: {
+    // featuredItem: (state, action) => {
+    //   state.allProducts = state.allProducts.filter(
+    //     (item) => item.featured === true
+    //   );
+    // },
+  },
 });
+
+// export const { featuredItem, filterByCompany } = ProductSlice.actions;
 
 export default ProductSlice.reducer;
