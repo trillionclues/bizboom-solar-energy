@@ -14,12 +14,12 @@ const Brand = () => {
     <>
       <hr className='w-1/2 mx-auto bg-gradient-to-r from-black via-red-500 to-black border-2 border-black rounded' />
 
-      <div className='brands bg-white py-24'>
+      <div className='brands bg-white py-20 md:py-24'>
         <div className='mx-auto'>
           <h2 className='md:px-16 px-8 text-2xl md:text-3xl font-semibold text-[#3D405B] mb-2 md:mb-4'>
             Choose By Brand
           </h2>
-          <div className='grid grid-cols-1 md:grid-cols-4 gap-7 md:px-16 px-8 py-10 items md:items-start justify-items md:px-16 '>
+          <div className='grid grid-cols-1 md:grid-cols-4 gap-7 md:px-16 px-8 py-6 md:py-10 items md:items-start justify-items md:px-16 '>
             {logo.map((item, index) => {
               return (
                 <div

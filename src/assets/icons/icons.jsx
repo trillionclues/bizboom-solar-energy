@@ -204,3 +204,47 @@ export const IconGrid = (props) => {
     </svg>
   );
 };
+export const IconMinus = (props) => {
+  return (
+    <svg
+      viewBox='0 0 1024 1024'
+      fill='currentColor'
+      height='1em'
+      width='1em'
+      {...props}
+    >
+      <path d='M872 474H152c-4.4 0-8 3.6-8 8v60c0 4.4 3.6 8 8 8h720c4.4 0 8-3.6 8-8v-60c0-4.4-3.6-8-8-8z' />
+    </svg>
+  );
+};
+export const IconPlus = (props) => {
+  return (
+    <svg
+      viewBox='0 0 1024 1024'
+      fill='currentColor'
+      height='1em'
+      width='1em'
+      {...props}
+    >
+      <defs>
+        <style />
+      </defs>
+      <path d='M482 152h60q8 0 8 8v704q0 8-8 8h-60q-8 0-8-8V160q0-8 8-8z' />
+      <path d='M176 474h672q8 0 8 8v60q0 8-8 8H176q-8 0-8-8v-60q0-8 8-8z' />
+    </svg>
+  );
+};
+export const IconCheck = (props) => {
+  return (
+    <svg
+      // white color
+      fill='currentColor'
+      viewBox='0 0 16 16'
+      height='1em'
+      width='1em'
+      {...props}
+    >
+      <path d='M16 8A8 8 0 110 8a8 8 0 0116 0zm-3.97-3.03a.75.75 0 00-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 00-1.06 1.06L6.97 11.03a.75.75 0 001.079-.02l3.992-4.99a.75.75 0 00-.01-1.05z' />
+    </svg>
+  );
+};

@@ -56,8 +56,8 @@ const BestDeals = () => {
       <div className='all-products'>
         <div className='text-center mt-10'>
           <Link to='/products'>
-            <button className='bg-[#3D405B] text-white px-4 py-2 rounded-md hover:bg-[#E3F2C1] hover:text-[#3D405B]  hover:bg-white hover:border-[#3D405B] hover:shadow-lg hover:scale-105 transform transition duration-300 ease-in-out transition duration-300 ease-in-out'>
-              View All Products
+            <button className='bg-[#3D405B] text-white px-5 py-2 rounded-md hover:bg-[#E3F2C1] hover:text-[#3D405B]  hover:bg-white hover:border-[#3D405B] hover:shadow-lg hover:scale-105 transform transition duration-300 ease-in-out transition duration-300 ease-in-out'>
+              Shop Now
             </button>
           </Link>
         </div>

@@ -30,10 +30,10 @@ const Products = () => {
             <div className='flex flex-row justify-between items-center'>
               <div className='flex flex-row justify-center items-center'>
                 <div className='md:mr-10 mr-2 flex flex-row justify-center items-center'>
-                  <button className='grid-toggle rounded-md mr-1 hover:bg-gray-200'>
+                  <button className='grid-toggle mr-1 hover:bg-gray-200'>
                     <IconGrid />
                   </button>
-                  <button className='list-toggle rounded-md hover:bg-gray-200 border-1'>
+                  <button className='list-toggle hover:bg-gray-200 border-1'>
                     <IconList />
                   </button>
                 </div>

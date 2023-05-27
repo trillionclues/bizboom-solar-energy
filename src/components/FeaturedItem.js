@@ -18,11 +18,11 @@ const Featured = ({ item }) => {
                 className='w-80 md:w-72 h-72 md:h-56 object-cover rounded-t-md filter'
               />
             </div>
-            <div className='card-footer flex flex-row justify-between items-start mx-1'>
+            <div className='card-footer flex flex-row justify-between items-start mx-1 gap-4 md:gap-2'>
               <h3 className='text-sm font-light text-gray-700 mb-2 capitalize'>
                 {name}
               </h3>
-              <p className='text-gray-500 mb-2 text-[#3D405B]'>
+              <p className='text-gray-500 mb-2 text-[#3D405B] font-semibold'>
                 {formatPrice(price)}
               </p>
             </div>
@@ -30,12 +30,23 @@ const Featured = ({ item }) => {
         </Link>
 
         <div className='flex flex-row justify-between items-center pt-3 mx-2'>
-          <p className='text-gray-500 mb-2 text-[#3D405B]'>
+          <p className='text-black mb-2 text-[#3D405B] pt-1'>
             {shipping ? 'Free Shipping' : 'Paid Shipping'}
           </p>
-          <Link to='cart'>
+          <div className='flex flex-row justify-center items-center'>
+            {[...Array(5)].map((_, index) => (
+              <span key={index} className='text-[#3D405B] text-xl'>
+                &#9733;
+              </span>
+            ))}
+            <div className='reviews'>
+              <p className='text-[#3D405B] text-sm font-semibold'>(54)</p>
+            </div>
+          </div>
+
+          {/* <Link to='cart'>
             <button>Add to Cart</button>
-          </Link>
+          </Link> */}
         </div>
       </article>
     </div>

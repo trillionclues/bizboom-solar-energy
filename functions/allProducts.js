@@ -3,10 +3,6 @@ dotenv.config();
 
 const Airtable = require('airtable-node');
 
-// console.log(process.env.AIRTABLE_API_KEY);
-// console.log(process.env.AIRTABLE_BASE_ID);
-// console.log(process.env.AIRTABLE_TABLE_NAME);
-
 // connect to airtable
 const airtable = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY })
   .base(process.env.AIRTABLE_BASE_ID)

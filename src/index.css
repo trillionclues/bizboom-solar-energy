@@ -46,6 +46,31 @@
   transition: all 0.2s ease-in-out;
 }
 
+/* color toggle */
+.active {
+  opacity: 1;
+}
+
+.color-btn {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: black;
+  margin-right: 0.5rem;
+  border: none;
+  cursor: pointer;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.color-btn svg {
+  fill: #fff;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

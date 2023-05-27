@@ -34,14 +34,14 @@ const Navbar = () => {
               <Link to='/login'>
                 <button className='btn flex justify-center items-center '>
                   <IconUser />
-                  <p>Login</p>
+                  <p className='hidden md:inline-block'>Login</p>
                 </button>
               </Link>
             </div>
             <Link to='/cart'>
               <button className='btn flex justify-center items-center'>
                 <IconShoppingCart />
-                <p>Cart</p>
+                <p className='hidden md:inline-block'>Cart</p>
               </button>
             </Link>
           </div>
