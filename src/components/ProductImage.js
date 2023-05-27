@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 
 const ProductImage = ({ images, name }) => {
-  // const [mainImg, setMainImg] = useState(images[0]);
+  const [mainImg, setMainImg] = useState(images?.[0]);
   return (
     <div className='w-full md:w-[50%]'>
       <div className='flex flex-row justify-start items-start gap-4 md:gap-0'>
         <div className='flex flex-col gap-2'>
-          {/* <img
-            src={mainImg.url}
+          <img
+            src={mainImg?.url}
             alt={name}
             className='w-full md:w-9/12 h-[100%] object-cover'
-          /> */}
+          />
 
           <div className='flex flex-row justify-start items-start gap-4'>
-            {/* {images.map((image, idx) => {
+            {images?.map((image, idx) => {
               return (
                 <div key={idx}>
                   <img
@@ -26,7 +26,7 @@ const ProductImage = ({ images, name }) => {
                   />
                 </div>
               );
-            })} */}
+            })}
           </div>
         </div>
       </div>

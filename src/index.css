@@ -67,6 +67,12 @@
   transition: all 0.2s ease-in-out;
 }
 
+.btn-svg svg {
+  width: 20px;
+  height: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
 .color-btn svg {
   fill: #fff;
 }

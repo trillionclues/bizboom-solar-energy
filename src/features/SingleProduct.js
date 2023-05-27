@@ -47,6 +47,8 @@ const SingleProductSlice = createSlice({
         state.amount += 1;
       } else if (action.payload === 'dec') {
         state.amount -= 1;
+      } else if (action.payload === 'reset') {
+        state.amount = 1;
       }
     },
   },

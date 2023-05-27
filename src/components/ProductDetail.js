@@ -15,7 +15,7 @@ const ProductDetail = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
 
-  // console.log(productItem);
+  console.log(productItem);
 
   // destructure productItem
   const {

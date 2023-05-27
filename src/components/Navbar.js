@@ -29,25 +29,24 @@ const Navbar = () => {
             </li>
           </ul>
 
-          <div className='cart-login flex justify-center items-center gap-6'>
-            <div className='login'>
-              <Link to='/login'>
-                <button className='btn flex justify-center items-center '>
-                  <IconUser />
-                  <p className='hidden md:inline-block'>Login</p>
-                </button>
-              </Link>
-            </div>
+          <div className='cart-login flex justify-center items-center gap-3 md:gap-6'>
+            <Link to='/login'>
+              <button className='btn-svg flex justify-center items-center gap-1'>
+                <IconUser />
+                <p className='hidden md:inline-block'>Login</p>
+              </button>
+            </Link>
+
             <Link to='/cart'>
-              <button className='btn flex justify-center items-center'>
+              <button className='btn-svg flex justify-center items-center gap-1'>
                 <IconShoppingCart />
                 <p className='hidden md:inline-block'>Cart</p>
               </button>
             </Link>
+            <button className='nav-toggle md:hidden flex'>
+              <BarsIcon />
+            </button>
           </div>
-          <button className='nav-toggle md:hidden flex'>
-            <BarsIcon />
-          </button>
         </div>
       </div>
     </nav>
