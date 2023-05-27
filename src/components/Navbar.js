@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo3.jpg';
 import { BarsIcon, IconUser, IconShoppingCart } from '../assets/icons/icons';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
+  const { itemAmount } = useSelector((state) => state.products);
+
   return (
     <nav className='fixed top-0 left-0 bg-white text-gray-700 py-3 w-full shadow-md z-50'>
       <div className='nav-center px-8 md:px-16'>
@@ -30,17 +33,28 @@ const Navbar = () => {
           </ul>
 
           <div className='cart-login flex justify-center items-center gap-3 md:gap-6'>
-            <Link to='/login'>
-              <button className='btn-svg flex justify-center items-center gap-1'>
-                <IconUser />
-                <p className='hidden md:inline-block'>Login</p>
+            <Link
+              to='/cart'
+              className='flex flex-row justify-between items-center gap-2'
+            >
+              <p className='hidden md:inline-block'>Cart</p>
+              <button
+                className='btn-svg flex justify-center items-center gap-1
+              relative'
+              >
+                <IconShoppingCart />
+                <span
+                  className='
+              absolute -top-2 -right-2 text-white rounded-full w-6 h-6 flex justify-center items-center text-center bg-[#3D405B]'
+                >
+                  {itemAmount}
+                </span>
               </button>
             </Link>
-
-            <Link to='/cart'>
+            <Link to='/login'>
               <button className='btn-svg flex justify-center items-center gap-1'>
-                <IconShoppingCart />
-                <p className='hidden md:inline-block'>Cart</p>
+                <p className='hidden md:inline-block'>Login</p>
+                <IconUser />
               </button>
             </Link>
             <button className='nav-toggle md:hidden flex'>

@@ -68,8 +68,8 @@
 }
 
 .btn-svg svg {
-  width: 20px;
-  height: 20px;
+  /* width: 20px;
+  height: 20px; */
   transition: all 0.2s ease-in-out;
 }
 

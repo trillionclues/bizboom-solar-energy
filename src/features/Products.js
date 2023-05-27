@@ -7,6 +7,8 @@ const initialState = {
   isLoading: false,
   error: null,
   total: 0,
+  cartItems: [],
+  itemAmount: parseInt(localStorage.getItem('itemAmount')) || 0,
 };
 
 // fetch products from endpoint
@@ -41,14 +43,13 @@ const ProductSlice = createSlice({
     });
   },
   reducers: {
-    // featuredItem: (state, action) => {
-    //   state.allProducts = state.allProducts.filter(
-    //     (item) => item.featured === true
-    //   );
-    // },
+    itemTotal: (state) => {
+      state.itemAmount += 1;
+      localStorage.setItem('itemAmount', state.itemAmount);
+    },
   },
 });
 
-// export const { featuredItem, filterByCompany } = ProductSlice.actions;
+export const { itemTotal } = ProductSlice.actions;
 
 export default ProductSlice.reducer;

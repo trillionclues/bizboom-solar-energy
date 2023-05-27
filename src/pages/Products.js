@@ -83,7 +83,7 @@ const Products = () => {
       </div>
       {isLoading ? (
         <div className='flex flex-col justify-center items-center h-[50vh] gap-5'>
-          <h2 className='text-2xl md:text-3xl font-semibold text-[#3D405B] mb-2 md:mb-4'>
+          <h2 className='text-2xl md:text-3xl font-semibold text-[#3D405B] mb-2 md:mb-4 text-center'>
             Checking available products...
           </h2>
           <Loading />

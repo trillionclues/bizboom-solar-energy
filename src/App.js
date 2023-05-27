@@ -6,6 +6,7 @@ import LandingPage from './pages/LandingPage';
 import About from './pages/About';
 import Products from './pages/Products';
 import ProductDetail from './components/ProductDetail';
+import Cart from './pages/Cart/Cart';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
             element={<h1>panels</h1>}
           />
           <Route path='/about' element={<About />} />
+          <Route path='/cart' element={<Cart />} />
           <Route path='*' element={<div>Error found...</div>} />
         </Routes>
       </SharedLayouts>
