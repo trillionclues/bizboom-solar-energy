@@ -7,7 +7,7 @@ const CartItems = () => {
     <div className='flex flex-col justify-start items-start mt-8'>
       <div className='flex flex-row justify-between items-center'>
         <div className='mr-10 md:mr-[230px]'>
-          <img src={logo} className='h-28 w-40 ' />
+          <img src={logo} className='h-28 w-40 ' alt='item' />
         </div>
         <div
           className='flex flex-grow
@@ -41,39 +41,6 @@ const CartItems = () => {
         </div>
       </div>
     </div>
-
-    // <div className='flex flex-col justify-start items-start mt-8'>
-    //   {/* item image */}
-    //   <div className='flex flex-row justify-between items-center w-full pb-4 gap-4'>
-    //     <div className='flex flex-row justify-between items-center w-full font-black pb-4 px-24 font-light text-lg capitalize'>
-    //       <img src={logo} alt='item' className='w-24 h-24' />
-    //       <div className='flex flex-col justify-start items-start'>
-    //         <p className='text-[#3D405B] text-sm font-black  tracking-wide'>
-    //           Item Name
-    //         </p>
-    //         <p>Color: </p>
-    //       </div>
-
-    //       <p className='text-[#3D405B] text-sm font-black  tracking-wide'>
-    //         $100
-    //       </p>
-    //     </div>
-    //     <div className='flex flex-row justify-between items-center gap-4'>
-    //       <button className='text-[#3D405B] text-sm font-black  tracking-wide'>
-    //         -
-    //       </button>
-    //       <p className='text-[#3D405B] text-sm font-black  tracking-wide'>1</p>
-    //       <button className='text-[#3D405B] text-sm font-black  tracking-wide'>
-    //         +
-    //       </button>
-    //     </div>
-
-    //     <p className='text-[#3D405B] text-sm font-black  tracking-wide'>$100</p>
-    //     <button className='text-[#3D405B] text-sm font-black  tracking-wide'>
-    //       X
-    //     </button>
-    //   </div>
-    // </div>
   );
 };
 
