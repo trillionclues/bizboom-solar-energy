@@ -25,7 +25,7 @@ const AddToCart = ({ productItem }) => {
   return (
     <>
       <div className='flex flex-row justify-start items-center gap-2 mt-4'>
-        <p className='text-[#3D405B] text-base font-semibold tracking-wide'>
+        <p className='text-[#3D405B] text-base font-semibold tracking-wide pr-2'>
           Choose a color:
         </p>
         <div className='flex flex-row justify-start items-center gap-2'>
@@ -46,7 +46,7 @@ const AddToCart = ({ productItem }) => {
       </div>
 
       <div className='flex flex-row justify-start items-center md:gap-16 gap-12 mt-4'>
-        <div className='flex flex-row justify-start items-center gap-2 bg-[#C9DBB2] w-40 h-12 rounded-2xl px-3 py-2'>
+        <div className='flex flex-row justify-start items-center gap-2 bg-[#C9DBB2] w-40 h-12 rounded-md px-3 py-2'>
           <button
             className='h-8 text-4xl font-black mr-3'
             onClick={() => dispatch(toggleAmount('dec'))}
