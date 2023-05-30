@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo3.jpg';
 import { BarsIcon, IconUser, IconShoppingCart } from '../assets/icons/icons';
-import { useSelector } from 'react-redux';
 
 const Navbar = () => {
-  const { itemAmount } = useSelector((state) => state.products);
+  // const { cartItems } = useSelector((state) => state.singleProduct);
+  const storedCartItems = localStorage.getItem('cartItems');
+  const initialCartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
 
   return (
     <nav className='fixed top-0 left-0 bg-white text-gray-700 py-3 w-full shadow-md z-50'>
@@ -47,7 +48,7 @@ const Navbar = () => {
                   className='
               absolute -top-2 -right-2 text-white rounded-full w-6 h-6 flex justify-center items-center text-center bg-[#3D405B]'
                 >
-                  {itemAmount}
+                  {initialCartItems.length > 0 ? initialCartItems.length : 0}
                 </span>
               </button>
             </Link>

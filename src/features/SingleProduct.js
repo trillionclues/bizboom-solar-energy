@@ -8,6 +8,7 @@ const initialState = {
   error: null,
   featured: [],
   amount: 1,
+  cartItems: [],
   isSideBarOpen: false,
 };
 
@@ -42,18 +43,49 @@ const SingleProductSlice = createSlice({
     });
   },
   reducers: {
+    // toggle productItem amount property
     toggleAmount: (state, action) => {
-      if (action.payload === 'inc') {
-        state.amount += 1;
-      } else if (action.payload === 'dec') {
-        state.amount -= 1;
-      } else if (action.payload === 'reset') {
-        state.amount = 1;
+      const { type } = action.payload;
+      const { amount } = state.productItem;
+
+      if (type === 'inc') {
+        console.log('inc', state.productItem.amount);
+        state.productItem.amount += 1;
+      } else if (type === 'dec' && amount > 1) {
+        state.productItem.amount -= 1;
       }
+
+      // // store the update productItem to local storage
+      // localStorage.setItem('amountToggle', state.productItem.amount);
+    },
+    addToCart: (state, action) => {
+      const { productItem } = action.payload;
+      // check if item is already in cart
+      const existingItem = state.cartItems.find(
+        (item) => item.id === productItem.id
+      );
+      if (existingItem) {
+        existingItem.amount += state.amount;
+      }
+      // if not, add item to cart
+      else {
+        state.cartItems.push({ ...productItem });
+      }
+      // store the update productItem to local storage
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
+    },
+    removeCartItem: (state, action) => {
+      const { id } = action.payload;
+      state.cartItems = state.cartItems.filter((item) => item.id !== id);
+
+      // After removing an item from the cart
+      // store the update productItem to local storage
+      localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
   },
 });
 
-export const { toggleAmount } = SingleProductSlice.actions;
+export const { toggleAmount, addToCart, removeCartItem } =
+  SingleProductSlice.actions;
 
 export default SingleProductSlice.reducer;

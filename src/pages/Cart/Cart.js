@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import CartItems from './CartItems';
 
 const Cart = () => {
-  const { itemAmount } = useSelector((state) => state.products);
+  // const { itemAmount } = useSelector((state) => state.products);
+  // const { cartItems } = useSelector((state) => state.singleProduct);
+  const initialCartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
   return (
     <div className='bg-white h-full pt-16 md:h-[100%] w-full md:px-16 px-8'>
@@ -37,14 +38,14 @@ const Cart = () => {
         '
         />
 
-        {itemAmount === 0 ? (
+        {initialCartItems.length === 0 ? (
           <div className='flex flex-col justify-center items-center mt-8'>
             <h1 className='text-[#3D405B] text-4xl font-black tracking-wide'>
               Your cart is empty!
             </h1>
           </div>
         ) : (
-          <CartItems />
+          <CartItems initialCartItems={initialCartItems} />
         )}
       </div>
     </div>

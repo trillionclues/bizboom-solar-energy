@@ -29,6 +29,9 @@ exports.handler = async (event, context, cb) => {
 
       // destructure the product
       product = { id: product.id, ...product.fields };
+
+      // Add the amount property
+      product.amount = 1;
       // console.log(product);
       return {
         headers: {

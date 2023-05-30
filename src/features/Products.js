@@ -7,7 +7,7 @@ const initialState = {
   isLoading: false,
   error: null,
   total: 0,
-  cartItems: [],
+  // cartItems: [],
   itemAmount: parseInt(localStorage.getItem('itemAmount')) || 0,
 };
 
@@ -43,13 +43,19 @@ const ProductSlice = createSlice({
     });
   },
   reducers: {
-    itemTotal: (state) => {
+    calculateItemTotal: (state) => {
       state.itemAmount += 1;
       localStorage.setItem('itemAmount', state.itemAmount);
     },
   },
+  // addToCart: {
+  //   reducer: (state, action) => {
+  //     const { id, image, price } = action.payload;
+  //     state.cartItems.push({ id, image, price });
+  //   },
+  // },
 });
 
-export const { itemTotal } = ProductSlice.actions;
+export const { calculateItemTotal } = ProductSlice.actions;
 
 export default ProductSlice.reducer;

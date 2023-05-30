@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react';
-import { toggleAmount } from '../features/SingleProduct';
+import { toggleAmount, addToCart } from '../features/SingleProduct';
 import { useDispatch, useSelector } from 'react-redux';
-import { itemTotal } from '../features/Products';
+import { calculateItemTotal } from '../features/Products';
 import { IconMinus, IconPlus, IconCheck } from '../assets/icons/icons';
 import { useNavigate } from 'react-router-dom';
 
 const AddToCart = ({ productItem }) => {
-  const { colors } = productItem;
+  const { colors, amount } = productItem;
   const [mainColor, setMainColor] = useState(colors[0]);
   const dispatch = useDispatch();
-  const { amount } = useSelector((state) => state.singleProduct);
   const { itemAmount } = useSelector((state) => state.products);
   const navigate = useNavigate();
 
@@ -18,8 +17,9 @@ const AddToCart = ({ productItem }) => {
   }, [dispatch]);
 
   const handleItemTotal = () => {
-    dispatch(itemTotal(itemAmount));
+    dispatch(calculateItemTotal(itemAmount));
     navigate('/cart');
+    dispatch(addToCart({ productItem }));
   };
 
   return (
@@ -49,7 +49,7 @@ const AddToCart = ({ productItem }) => {
         <div className='flex flex-row justify-start items-center gap-2 bg-[#C9DBB2] w-40 h-12 rounded-md px-3 py-2'>
           <button
             className='h-8 text-4xl font-black mr-3'
-            onClick={() => dispatch(toggleAmount('dec'))}
+            onClick={() => dispatch(toggleAmount({ type: 'dec' }))}
           >
             <IconMinus />
           </button>
@@ -58,19 +58,17 @@ const AddToCart = ({ productItem }) => {
           </p>
           <button
             className='h-8 text-4xl font-black'
-            onClick={() => dispatch(toggleAmount('inc'))}
+            onClick={() => dispatch(toggleAmount({ type: 'inc' }))}
           >
             <IconPlus />
           </button>
         </div>
-        {/* <Link to='/'> */}
         <button
           className='w-40 h-12 bg-[#3D405B] text-white rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3D405B]'
           onClick={handleItemTotal}
         >
           Add to Cart
         </button>
-        {/* </Link> */}
       </div>
     </>
   );
