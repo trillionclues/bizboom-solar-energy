@@ -18,7 +18,7 @@ const CartItems = ({ initialCartItems }) => {
         return (
           <div
             key={idx}
-            className='flex flex-row justify-between items-center mb-8 w-full'
+            className='flex flex-row justify-between items-center mb-5 w-full'
           >
             <div className='mr-10 md:mr-[230px] flex flex-col justify-center items-center gap-0 md:gap-2 mb-6'>
               <img

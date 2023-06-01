@@ -82,10 +82,14 @@ const SingleProductSlice = createSlice({
       // store the update productItem to local storage
       localStorage.setItem('cartItems', JSON.stringify(state.cartItems));
     },
+    clearCart: (state) => {
+      // clear bothe the localstorage and the state
+      localStorage.removeItem('cartItems');
+    },
   },
 });
 
-export const { toggleAmount, addToCart, removeCartItem } =
+export const { toggleAmount, addToCart, removeCartItem, clearCart } =
   SingleProductSlice.actions;
 
 export default SingleProductSlice.reducer;

@@ -1,11 +1,20 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo3.jpg';
 import { BarsIcon, IconUser, IconShoppingCart } from '../assets/icons/icons';
+import { addToCart } from '../features/SingleProduct';
+import { useEffect, useMemo } from 'react';
 
 const Navbar = () => {
   // const { cartItems } = useSelector((state) => state.singleProduct);
-  const storedCartItems = localStorage.getItem('cartItems');
-  const initialCartItems = storedCartItems ? JSON.parse(storedCartItems) : [];
+  const initialCartItems = useMemo(() => {
+    const cartItems = localStorage.getItem('cartItems');
+    return cartItems ? JSON.parse(cartItems) : [];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addToCart]);
+
+  useEffect(() => {
+    localStorage.setItem('cartItems', JSON.stringify(initialCartItems));
+  }, [initialCartItems]);
 
   return (
     <nav className='fixed top-0 left-0 bg-white text-gray-700 py-3 w-full shadow-md z-50'>

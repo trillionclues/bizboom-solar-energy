@@ -4,9 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { calculateItemTotal } from '../features/Products';
 import { IconMinus, IconPlus, IconCheck } from '../assets/icons/icons';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddToCart = ({ productItem }) => {
-  const { colors, amount } = productItem;
+  const { colors, amount, name } = productItem;
   const [mainColor, setMainColor] = useState(colors[0]);
   const dispatch = useDispatch();
   const { itemAmount } = useSelector((state) => state.products);
@@ -20,6 +22,7 @@ const AddToCart = ({ productItem }) => {
     dispatch(calculateItemTotal(itemAmount));
     navigate('/cart');
     dispatch(addToCart({ productItem }));
+    toast.success(`${name} added to cart!`);
   };
 
   return (

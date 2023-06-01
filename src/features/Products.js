@@ -47,15 +47,20 @@ const ProductSlice = createSlice({
       state.itemAmount += 1;
       localStorage.setItem('itemAmount', state.itemAmount);
     },
+    searchProducts: (state, action) => {
+      const { query } = action.payload;
+      if (!query) {
+        state.allProducts = state.initialAllProducts;
+      } else {
+        state.allProducts = state.allProducts.filter((product) => {
+          const productName = product.name.toLowerCase();
+          return productName.includes(query);
+        });
+      }
+    },
   },
-  // addToCart: {
-  //   reducer: (state, action) => {
-  //     const { id, image, price } = action.payload;
-  //     state.cartItems.push({ id, image, price });
-  //   },
-  // },
 });
 
-export const { calculateItemTotal } = ProductSlice.actions;
+export const { calculateItemTotal, searchProducts } = ProductSlice.actions;
 
 export default ProductSlice.reducer;

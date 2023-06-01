@@ -3,17 +3,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IconGrid, IconList } from '../assets/icons/icons';
 import Loading from '../components/Loading';
 import ProductItem from '../components/ProductItem';
-import { getProducts } from '../features/Products';
+import { getProducts, searchProducts } from '../features/Products';
 
 const Products = () => {
   const { allProducts, isLoading } = useSelector((state) => state.products);
   const dispatch = useDispatch();
 
-  // console.log(allProducts);
+  // search products
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const query = e.target.value;
+    dispatch(searchProducts({ query }));
+    // console.log(query);
+  };
 
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
+
+  const filteredProducts = allProducts;
 
   return (
     <div className='bg-white h-full pt-16 md:h-[100%] w-full md:px-16 px-8'>
@@ -24,6 +32,7 @@ const Products = () => {
               type='text'
               placeholder='Search...'
               className='py-[10px] md:py-[5px] md:px-4 px-2 w-full rounded-md focus:outline-none focus:ring-2 focus:ring-black focus:border-black md:mr-10 mr-0 bg-gray-100'
+              onChange={handleSearch}
             />
           </div>
           <div className='flex flex-col md:flex-row justify-between items-center md:justify-between md:w-[80%] w-full'>
@@ -39,7 +48,7 @@ const Products = () => {
                 </div>
 
                 <h4 className='text-sm md:text-basemr-0 md:mr-4'>
-                  {allProducts.length} products found
+                  {allProducts?.length} products found
                 </h4>
                 <hr className='border-1 border-gray-300 w-[120px] md:w-[400px] h-[1px] md:h-[2px] mx-2 md:mx-4' />
               </div>
@@ -90,7 +99,7 @@ const Products = () => {
         </div>
       ) : (
         <div className='grid grid-cols-1 md:grid-cols-4 gap-2 md:gap-4'>
-          {allProducts.map((product) => (
+          {filteredProducts.map((product) => (
             <ProductItem key={product.id} product={product} />
           ))}
         </div>
