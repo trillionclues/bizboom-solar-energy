@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IconGrid, IconList } from '../assets/icons/icons';
 import Loading from '../components/Loading';
 import ProductItem from '../components/ProductItem';
-import { getProducts, searchProducts } from '../features/Products';
+import {
+  getProducts,
+  searchProducts,
+  sortProductSelect,
+} from '../features/Products';
 
 const Products = () => {
   const { allProducts, isLoading } = useSelector((state) => state.products);
+  const [filteredProducts, setFilteredProducts] = useState(allProducts);
   const dispatch = useDispatch();
 
   // search products
@@ -14,14 +19,21 @@ const Products = () => {
     e.preventDefault();
     const query = e.target.value;
     dispatch(searchProducts({ query }));
-    // console.log(query);
+  };
+
+  // sort products
+  const handleSort = (e) => {
+    const sortOption = e.target.value;
+    dispatch(sortProductSelect({ sort: sortOption }));
   };
 
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  const filteredProducts = allProducts;
+  useEffect(() => {
+    setFilteredProducts(allProducts);
+  }, [allProducts]);
 
   return (
     <div className='bg-white h-full pt-16 md:h-[100%] w-full md:px-16 px-8'>
@@ -60,27 +72,28 @@ const Products = () => {
                 name=''
                 id=''
                 className='py-[5px] md:px-4 px-0 rounded-md focus:outline-none'
+                onChange={handleSort}
               >
                 <option
-                  value=''
+                  value='price-lowest'
                   className='py-[5px] px-4 rounded-md focus:outline-none'
                 >
                   Price - Lowest
                 </option>
                 <option
-                  value=''
+                  value='price-highest'
                   className='py-[5px] px-4 rounded-md focus:outline-none'
                 >
                   Price - Highest
                 </option>
                 <option
-                  value=''
+                  value='name-az'
                   className='py-[5px] px-4 rounded-md focus:outline-none'
                 >
                   Name - A to Z
                 </option>
                 <option
-                  value=''
+                  value='name-za'
                   className='py-[5px] px-4 rounded-md focus:outline-none'
                 >
                   Name - Z to A

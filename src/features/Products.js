@@ -50,17 +50,53 @@ const ProductSlice = createSlice({
     searchProducts: (state, action) => {
       const { query } = action.payload;
       if (!query) {
-        state.allProducts = state.initialAllProducts;
-      } else {
-        state.allProducts = state.allProducts.filter((product) => {
-          const productName = product.name.toLowerCase();
-          return productName.includes(query);
-        });
+        return {
+          ...state,
+          allProducts: [...state.allProducts],
+        };
       }
+
+      return {
+        ...state,
+
+        allProducts: state.allProducts.filter((product) => {
+          const productName = product.name.toLowerCase();
+
+          return productName.includes(query);
+        }),
+      };
+    },
+    sortProductSelect: (state, action) => {
+      const { sort } = action.payload;
+      let sortedProducts = [];
+
+      if (sort === 'price-lowest') {
+        sortedProducts = [...state.allProducts].sort(
+          (a, b) => a.price - b.price
+        );
+      } else if (sort === 'price-highest') {
+        sortedProducts = [...state.allProducts].sort(
+          (a, b) => b.price - a.price
+        );
+      } else if (sort === 'name-az') {
+        sortedProducts = [...state.allProducts].sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+      } else if (sort === 'name-za') {
+        sortedProducts = [...state.allProducts].sort((a, b) =>
+          b.name.localeCompare(a.name)
+        );
+      }
+
+      return {
+        ...state,
+        allProducts: sortedProducts,
+      };
     },
   },
 });
 
-export const { calculateItemTotal, searchProducts } = ProductSlice.actions;
+export const { calculateItemTotal, searchProducts, sortProductSelect } =
+  ProductSlice.actions;
 
 export default ProductSlice.reducer;
